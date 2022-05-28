@@ -45,6 +45,47 @@ public:
         }
     }
     
+    void turnRight () {
+        X = X;
+        Y = Y;
+        if (Direction == "NORTH") {
+            Direction = "EAST";
+        }
+        else if (Direction == "SOTH") {
+            Direction = "WEST";
+        }
+        else if (Direction == "WEST") {
+            Direction = "NORTH";
+        }
+        else {
+            Direction = "SOTH";
+        }
+    }
+    
+    void GoBack (){
+        if (Direction == "NORTH"){
+            X = X;
+            Y = Y - 1;
+            Direction = "NORTH";
+        }
+        else if (Direction == "WEST") {
+            X = X + 1 ;
+            Y = Y;
+            Direction = "WEST";
+        }
+        else if (Direction == "EAST") {
+            X = X-1;
+            Y = Y ;
+            Direction = "EAST";
+            
+        }
+        else {
+            X = X;
+            Y = Y + 1;
+            Direction = "SOTH";
+        }
+    }
+    
     void Go (){
         if (Direction == "NORTH"){
             X = X;
