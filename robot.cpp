@@ -1,7 +1,7 @@
 /*
   Name : Rakotojaona Nambinina
   email : Andrianoelisoa.Rakotojaona@gmail.com
-  Desciption : Object oriented Programming for simple Robot
+  Desciption : Object oriented Programming for simple Robot/ encapsulation / Abstraction / Hetitage
 */
 #include <iostream>
 
@@ -49,7 +49,7 @@ private:
     string getDirection (){
         return Direction;
     }
-    
+ 
     void myPosition (){
         cout << "x = " << X << endl;
         cout << "y = " << Y <<endl;
@@ -157,6 +157,30 @@ private:
     
 };
 
+class RobotCar: public Robot {
+    string Mark;
+public:
+    RobotCar (int x , int y , string direction, string mark)
+    :Robot(x,y,direction)
+    {
+        Mark = mark;
+    }
+    void setMark (string mark){
+        Mark = mark;
+    }
+    string getMark (){
+        return Mark;
+    }
+    
+    void details (){
+        cout << "x = " << getX() <<endl;
+        cout << "y = " << getY() <<endl;
+        cout << "direaction " << getDirection() <<endl;
+        cout <<"mark = " <<getMark() << endl;
+    }
+};
+
+
 int main()
 {
     //cout<<"Hello World";
@@ -177,5 +201,12 @@ int main()
     
     robot1.CheckStatus();
     robot1.myPosition();
+    
+    RobotCar car =  RobotCar (0,0,"NORTH","BMW");
+    car.details();
+    car.turnLeft();
+    car.myPosition();
+
+    
     return 0;
 }
