@@ -11,7 +11,7 @@ using std::endl;
 using std::string;
 
 class Robot {
-public:
+private:
     // entity
     int X; // x cordinate 
     int Y; // y cordinate
@@ -20,8 +20,30 @@ public:
     //const string SOTH = "SOTH";
     //const string EAST = "EAST";
     //const string WEST = "WEST";
-    
+ public:   
     // method 
+    
+    void SetX (int x) {
+        X = x;
+    }
+    int getX () {
+        return X;
+    }
+    
+    void setY (int y){
+        Y = y;
+    }
+    int getY(){
+        return Y;
+    }
+    
+    void setDirection (string direction){
+        Direction = direction;
+    }
+    string getDirection (){
+        return Direction;
+    }
+    
     void myPosition (){
         cout << "x = " << X << endl;
         cout << "y = " << Y <<endl;
@@ -130,7 +152,8 @@ int main()
     robot1.myPosition();
     robot1.Go();
     robot1.myPosition();
-
+    robot1.SetX(8);
+    robot1.myPosition();
 
     return 0;
 }
