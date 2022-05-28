@@ -10,7 +10,11 @@ using std::cout;
 using std::endl;
 using std::string;
 
-class Robot {
+class AbstractRobot {
+    virtual void CheckStatus() = 0;
+};
+
+class Robot:AbstractRobot{
 private:
     // entity
     int X; // x cordinate 
@@ -31,7 +35,9 @@ private:
     }
     
     void setY (int y){
-        Y = y;
+        if (y <100){
+            Y= y;
+        }
     }
     int getY(){
         return Y;
@@ -139,6 +145,16 @@ private:
         Direction = direction;
     }
     
+    void CheckStatus (){
+        if (X > 5 && Y > 5 ) {
+            X = 0;
+            Y =0;
+        } else {
+            X = X;
+            Y = Y;
+        }
+    }
+    
 };
 
 int main()
@@ -154,6 +170,12 @@ int main()
     robot1.myPosition();
     robot1.SetX(8);
     robot1.myPosition();
-
+    robot1.setY(8);
+    cout << "y position of robot1 " <<robot1.getY()<<endl;
+    robot1.setY(6);
+    cout << "y position of robot1 "<< robot1.getY()<<endl;
+    
+    robot1.CheckStatus();
+    robot1.myPosition();
     return 0;
 }
